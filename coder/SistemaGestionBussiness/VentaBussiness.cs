@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace coder.services
 {
-    public class VentaServices
+    public class VentaBussiness
     {
         private DataContext _context;
 
-        public VentaServices(DataContext context)
+        public VentaBussiness(DataContext context)
         {
             _context = context;
         }

@@ -2444,9 +2444,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Diego\\Desktop\\Proyecto Coderhouse\\coder\\coder.csproj",
-      "projectName": "coder",
-      "projectPath": "C:\\Users\\Diego\\Desktop\\Proyecto Coderhouse\\coder\\coder.csproj",
+      "projectUniqueName": "C:\\Users\\Diego\\Desktop\\Proyecto Coderhouse\\coder\\SistemaGestionBussines.csproj",
+      "projectName": "SistemaGestionBussines",
+      "projectPath": "C:\\Users\\Diego\\Desktop\\Proyecto Coderhouse\\coder\\SistemaGestionBussines.csproj",
       "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Diego\\Desktop\\Proyecto Coderhouse\\coder\\obj\\",
       "projectStyle": "PackageReference",

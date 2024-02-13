@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace coder.services
 {
-    public class ProductoServices
+    public class ProductoBussiness
     {
         private DataContext _context;
 
-        public ProductoServices(DataContext dataContext)
+        public ProductoBussiness(DataContext dataContext)
         {
             _context = dataContext;
         }
