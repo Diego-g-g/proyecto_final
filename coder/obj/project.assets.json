@@ -2439,19 +2439,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Diego\\.nuget\\packages\\": {}
+    "C:\\Users\\dgauna\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Diego\\Desktop\\Proyecto Coderhouse\\coder\\SistemaGestionBussines.csproj",
+      "projectUniqueName": "C:\\Users\\dgauna\\Desktop\\proyecto\\-Desarrollo-de-Aplicaciones-en-Capas\\coder\\SistemaGestionBussines.csproj",
       "projectName": "SistemaGestionBussines",
-      "projectPath": "C:\\Users\\Diego\\Desktop\\Proyecto Coderhouse\\coder\\SistemaGestionBussines.csproj",
-      "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Diego\\Desktop\\Proyecto Coderhouse\\coder\\obj\\",
+      "projectPath": "C:\\Users\\dgauna\\Desktop\\proyecto\\-Desarrollo-de-Aplicaciones-en-Capas\\coder\\SistemaGestionBussines.csproj",
+      "packagesPath": "C:\\Users\\dgauna\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dgauna\\Desktop\\proyecto\\-Desarrollo-de-Aplicaciones-en-Capas\\coder\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dgauna\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

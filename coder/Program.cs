@@ -1,6 +1,7 @@
 using coder.database;
 using coder.services;
 using Microsoft.EntityFrameworkCore;
+using SistemaGestionBussines.services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +11,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<UsuarioBussiness>();
-builder.Services.AddScoped<ProductoBussiness>();
-builder.Services.AddScoped<VentaBussiness>();
-builder.Services.AddScoped<ProductovendidoBussiness>();
+builder.Services.AddScoped<UsuarioServices>();
+builder.Services.AddScoped<ProductoServices>();
+builder.Services.AddScoped<VentaServices>();
+builder.Services.AddScoped<ProductovendidoServices>();
 
 builder.Services.AddDbContext<DataContext>(options =>
 {

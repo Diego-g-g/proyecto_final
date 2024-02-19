@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SistemaGestionBussines.props" />
+</Project>

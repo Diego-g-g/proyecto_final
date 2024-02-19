@@ -1,15 +1,16 @@
 ﻿using coder.database;
-using coder.DTO;
 using coder.models;
 using Microsoft.EntityFrameworkCore;
+using SistemaGestionBussines.DTO;
+using SistemaGestionBussines.Mapper;
 
 namespace coder.services
 {
-    public class VentaBussiness
+    public class VentaServices
     {
         private DataContext _context;
 
-        public VentaBussiness(DataContext context)
+        public VentaServices(DataContext context)
         {
             _context = context;
         }
@@ -47,23 +48,22 @@ namespace coder.services
 
         }
 
-        public void EditVenta(int id, Venta venta)
+        public bool EditVenta(int id, VentaDTO venta)
         {
             Venta? ventaEditar = this._context.Venta.Find(id);
 
-            if (ventaEditar == null)
+            if (ventaEditar == null || venta == null)
             {
-                throw new InvalidOperationException("Venta no encontrada");
+                return false;
             }
-
-
-            if (venta.Comentarios != null)
+            Venta? editado = VentaMapper.MapeoEditVentaDTO(venta, ventaEditar);
+            if (editado is not null)
             {
-                ventaEditar.Comentarios = venta.Comentarios;
+                this._context.Update(editado);
+                this._context.SaveChanges();
+                return true;
             }
-
-            this._context.Update(ventaEditar);
-            this._context.SaveChanges();
+            return false;
         }
 
         public void DeleteVenta(int id)
@@ -79,6 +79,13 @@ namespace coder.services
             }
             this._context.Remove(ventaDelet);
             this._context.SaveChanges();
+        }
+
+        public List<Venta> FindVentafromIdUsuario(int id)
+        {
+            List<Venta> ventas = new List<Venta>();
+            ventas = this._context.Venta.Where(v => v.IdUsuario == id).ToList();
+            return ventas;
         }
     }
 }

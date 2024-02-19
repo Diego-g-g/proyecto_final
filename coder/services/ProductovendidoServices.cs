@@ -1,14 +1,17 @@
 ﻿using coder.database;
 using coder.models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SistemaGestionBussines.DTO;
+using SistemaGestionBussines.Mapper;
 
 namespace coder.services
 {
-    public class ProductovendidoBussiness
+    public class ProductovendidoServices
     {
         private DataContext _context;
 
-        public ProductovendidoBussiness(DataContext context)
+        public ProductovendidoServices(DataContext context)
         {
             this._context = context;
         }
@@ -56,7 +59,7 @@ namespace coder.services
             }
 
 
-            if (vendido.Stock != null)
+            if (vendido is not null)
             {
                 vendidoEditar.Stock = vendido.Stock;
             }
@@ -77,5 +80,26 @@ namespace coder.services
             this._context.Remove(vendidoDelet);
             this._context.SaveChanges();
         }
+
+        public List<ProductoVendidoDTO> FindProductoVendidoFromUsuario(int id)
+        {
+            List<Producto> productos = this._context.Productos
+                .Include(p => p.ProductoVendidos)
+                .Where(p => p.IdUsuario == id)
+                .ToList();
+
+            List<ProductoVendido?> vendido = productos
+                .Select(p => p.ProductoVendidos
+                                    .ToList()
+                                    .Find(pv => pv.IdProducto == p.Id))
+                .Where(p => !object.ReferenceEquals(p, null))
+                .ToList();
+           
+            List<ProductoVendidoDTO> vendidoDTO = vendido
+                .Select(pv => ProductoVendidoMapper.MapeaProductovendidoADto(pv)).ToList();
+
+            return vendidoDTO;
+        }
+
     }
 }
