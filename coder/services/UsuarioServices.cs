@@ -44,9 +44,9 @@ namespace SistemaGestionBussines.services
             return false;
         }
 
-        public bool EditUsuario(int id, UsuarioDTO usuario)
+        public bool EditUsuario(UsuarioDTO usuario)
         {
-            Usuario? usuarioEditar = this._context.Usuarios.Find(id);
+            Usuario? usuarioEditar = this._context.Usuarios.Find(usuario.Id);
 
             if (usuarioEditar is not null)
             {

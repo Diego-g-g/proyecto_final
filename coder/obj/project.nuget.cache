@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZMvt1YkrkazSwCv9LxULnQBfvLFnzhR5KbUn5d5EmUV7c7thopHd3YFgyPr6cyGtxCCSIqEzgzKcT7UM4ZZ7PA==",
+  "dgSpecHash": "Uwer//1lwBo5ihp/yuQMzS14G05iwKm8SlqLJ3u4uzdZektOtOSuwpxiqzxazWwBxRMwd9RdHuXyUZHAr5c9Jw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dgauna\\Desktop\\proyecto\\-Desarrollo-de-Aplicaciones-en-Capas\\coder\\SistemaGestionBussines.csproj",
+  "projectFilePath": "C:\\Users\\dgauna\\Desktop\\Nueva carpeta\\proyecto_final\\coder\\SistemaGestionBussines.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dgauna\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dgauna\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

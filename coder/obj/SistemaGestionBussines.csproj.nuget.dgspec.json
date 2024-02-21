@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dgauna\\Desktop\\proyecto\\-Desarrollo-de-Aplicaciones-en-Capas\\coder\\SistemaGestionBussines.csproj": {}
+    "C:\\Users\\dgauna\\Desktop\\Nueva carpeta\\proyecto_final\\coder\\SistemaGestionBussines.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dgauna\\Desktop\\proyecto\\-Desarrollo-de-Aplicaciones-en-Capas\\coder\\SistemaGestionBussines.csproj": {
+    "C:\\Users\\dgauna\\Desktop\\Nueva carpeta\\proyecto_final\\coder\\SistemaGestionBussines.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dgauna\\Desktop\\proyecto\\-Desarrollo-de-Aplicaciones-en-Capas\\coder\\SistemaGestionBussines.csproj",
+        "projectUniqueName": "C:\\Users\\dgauna\\Desktop\\Nueva carpeta\\proyecto_final\\coder\\SistemaGestionBussines.csproj",
         "projectName": "SistemaGestionBussines",
-        "projectPath": "C:\\Users\\dgauna\\Desktop\\proyecto\\-Desarrollo-de-Aplicaciones-en-Capas\\coder\\SistemaGestionBussines.csproj",
+        "projectPath": "C:\\Users\\dgauna\\Desktop\\Nueva carpeta\\proyecto_final\\coder\\SistemaGestionBussines.csproj",
         "packagesPath": "C:\\Users\\dgauna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dgauna\\Desktop\\proyecto\\-Desarrollo-de-Aplicaciones-en-Capas\\coder\\obj\\",
+        "outputPath": "C:\\Users\\dgauna\\Desktop\\Nueva carpeta\\proyecto_final\\coder\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dgauna\\AppData\\Roaming\\NuGet\\NuGet.Config",

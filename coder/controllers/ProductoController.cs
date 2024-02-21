@@ -17,13 +17,9 @@ namespace SistemaGestionBussines.controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateProducto([FromBody] ProductoDTO producto, int id)
+        public IActionResult UpdateProducto([FromBody] ProductoDTO producto)
         {
-            if (id <= 0)
-            {
-                return BadRequest("ID invalido");
-            }
-            if (this._services.EditProducto(id, producto))
+            if (this._services.EditProducto(producto))
             {
                 return Ok(producto);
             }
@@ -66,13 +62,13 @@ namespace SistemaGestionBussines.controllers
 
             List<Producto> lista = this._services.GetProductoFromIdUsuario(idUsuario);
 
-            if (lista is not null)
+            if (lista.Count == 0)
             {
-                return Ok(lista);
+                return NotFound("No hay Productos con ese usuario.");
             }
             else
             {
-                return NotFound("No hay Productos con ese usuario.");
+                return Ok(lista);
             }
         }
 

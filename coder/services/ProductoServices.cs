@@ -44,9 +44,9 @@ namespace coder.services
             return true;            
         }
 
-        public bool EditProducto(int id, ProductoDTO producto)
+        public bool EditProducto(ProductoDTO producto)
         {
-            Producto? productoEditar = this._context.Productos.Find(id);
+            Producto? productoEditar = this._context.Productos.Find(producto.Id);
 
             if (productoEditar == null || producto == null)
             {

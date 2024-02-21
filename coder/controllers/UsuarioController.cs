@@ -18,23 +18,11 @@ namespace SistemaGestionBussines.controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateUsuario(int id, [FromBody] UsuarioDTO usuario)
+        public IActionResult UpdateUsuario([FromBody] UsuarioDTO usuario)
         {
-            if (id <= 0)
+            if (_services.EditUsuario(usuario))
             {
-                return BadRequest("ID de usuario no válido.");
-            }
-
-            var existingUser = _services.GetUsuarioId(id);
-
-            if (existingUser == null)
-            {
-                return NotFound("Usuario no encontrado.");
-            }
-
-            if (_services.EditUsuario(id, usuario))
-            {
-                return Ok();
+                return Ok(usuario);
             }
             else
             {

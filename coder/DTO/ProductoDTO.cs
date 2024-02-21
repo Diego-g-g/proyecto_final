@@ -2,6 +2,7 @@
 {
     public class ProductoDTO
     {
+        public int Id { get; set; }
         public string Descripciones { get; set; } = null!;
         public decimal? Costo { get; set; }
         public decimal PrecioVenta { get; set; }
