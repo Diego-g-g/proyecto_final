@@ -50,7 +50,6 @@ namespace SistemaGestionBussines.services
 
             if (usuarioEditar is not null)
             {
-
                 this._context.Update(UsuarioMapper.MapeoEditUsuarioDTO(usuario, usuarioEditar));
                 this._context.SaveChanges();
 
@@ -65,11 +64,16 @@ namespace SistemaGestionBussines.services
             return usuario;
         }
 
-        public Usuario? GetFromUsuarioPass(string usuario, string pass)
+        public UsuarioDTO GetFromUsuarioPass(string usuario, string pass)
         {
             Usuario? user = this._context.Usuarios.Where(u => u.NombreUsuario == usuario && u.Contraseña ==  pass).FirstOrDefault();
+            if (user is not null)
+            {
+                UsuarioDTO userDTO = UsuarioMapper.MapeaADTO(user);
 
-            return user;
+                return userDTO;
+            }
+            return null;
         }
     }
 }

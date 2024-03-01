@@ -20,6 +20,7 @@ namespace SistemaGestionBussines.Mapper
         public static UsuarioDTO MapeaADTO(Usuario usuario)
         {
             UsuarioDTO user = new UsuarioDTO();
+            user.Id = usuario.Id;
             user.Nombre = usuario.Nombre;
             user.Apellido = usuario.Apellido;
             user.NombreUsuario = usuario.NombreUsuario;

@@ -63,13 +63,13 @@ namespace SistemaGestionBussines.controllers
         {
             if(usuario == null && password == null)
             {
-                return BadRequest("usuario o contraseña incorrecta.");
+                return base.NoContent();
             }
-            Usuario? user = this._services.GetFromUsuarioPass(usuario, password);
+            UsuarioDTO user = this._services.GetFromUsuarioPass(usuario, password);
             
             if(user is not null) 
             {
-                return Ok(new { mensaje = "Acceso concedido", Usuario = user });
+                return Ok(user);
             }
             return BadRequest(new { mensaje = "Acceso denegado" });
         }
