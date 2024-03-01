@@ -15,9 +15,10 @@ namespace coder.services
             _context = dataContext;
         }
 
-        public Producto? GetProductoId(int id) 
+        public ProductoDTO GetProductoId(int id) 
         {
-            return this._context.Productos.Find(id);
+            Producto? producto = this._context.Productos.Find(id);
+            return ProductoMapper.MapperProductoADTO(producto);
             
         }
 
@@ -77,11 +78,17 @@ namespace coder.services
 
         }
 
-        public List<Producto> GetProductoFromIdUsuario(int id)
+        public List<ProductoDTO> GetProductoFromIdUsuario(int id)
         {
-            List<Producto> lista = new List<Producto>(); 
-            lista = this._context.Productos.Where(u => u.IdUsuario == id).ToList();
-            return lista;
+            List<Producto> lista = this._context.Productos.Where(u => u.IdUsuario == id).ToList();
+
+            List<ProductoDTO> productoDTO = new List<ProductoDTO>();
+
+            foreach(Producto producto in lista)
+            {
+                productoDTO.Add(ProductoMapper.MapperProductoADTO(producto));
+            }
+            return productoDTO;
         }
     }
 }

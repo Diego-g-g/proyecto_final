@@ -2,6 +2,7 @@
 using coder.services;
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestionBussines.DTO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SistemaGestionBussines.controllers
 {
@@ -23,7 +24,7 @@ namespace SistemaGestionBussines.controllers
                 return Conflict("Id incorrecto");
             }
             
-            List<Venta> ventas = this._services.FindVentafromIdUsuario(id);
+            List<VentaDTO> ventas = this._services.FindVentafromIdUsuario(id);
             
             if(ventas is not null)
             {
@@ -54,6 +55,24 @@ namespace SistemaGestionBussines.controllers
             else
             {
                 return BadRequest("No se pudo actualizar la venta.");
+            } 
+        }
+
+        [HttpPost("{idUsuario}")]
+        public IActionResult CrearVenta(int idusuario, [FromBody] List<ProductoDTO> productos)
+        {
+            if (productos.Count == 0)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                this._services.AgregarNuevaVenta(idusuario, productos);
+                return Ok();
+            }
+            catch
+            {
+                return Conflict();
             }
         }
     }

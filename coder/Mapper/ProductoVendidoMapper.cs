@@ -14,5 +14,15 @@ namespace SistemaGestionBussines.Mapper
             dto.IdVenta = vendido.IdVenta;
             return dto;
         }
+
+        public static ProductoVendido MapeaProductovendidoDTO(ProductoVendidoDTO dto)
+        {
+            ProductoVendido vendido = new ProductoVendido();
+            vendido.Id = dto.Id;
+            vendido.Stock = dto.Stock;
+            vendido.IdProducto = dto.IdProducto;
+            vendido.IdVenta = dto.IdVenta;
+            return vendido;
+        }
     }
 }

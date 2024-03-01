@@ -3,27 +3,34 @@ using coder.models;
 using Microsoft.EntityFrameworkCore;
 using SistemaGestionBussines.DTO;
 using SistemaGestionBussines.Mapper;
+using SistemaGestionBussines.services;
 
 namespace coder.services
 {
     public class VentaServices
     {
         private DataContext _context;
+        private readonly ProductovendidoServices productoVendidoServices;
+        private readonly ProductoServices productoService;
 
         public VentaServices(DataContext context)
         {
             _context = context;
         }
 
-        public Venta GetVentaId(int id)
+        public VentaDTO GetVentaId(int id)
         {
-            var venta = this._context.Venta.Find(id);
+            var ven = this._context.Venta.Find(id);
 
-            if (venta == null)
+            if (ven == null)
             {
                 throw new InvalidOperationException("Venta no encontrado");
             }
-            return venta;
+
+            VentaDTO? newVenta = new VentaDTO();
+            newVenta = VentaMapper.MapeoEditVentaDTO(newVenta, ven);
+
+            return newVenta;
         }
 
         public List<Venta> GetVentas()
@@ -56,7 +63,7 @@ namespace coder.services
             {
                 return false;
             }
-            Venta? editado = VentaMapper.MapeoEditVentaDTO(venta, ventaEditar);
+            Venta? editado = VentaMapper.MapeoVentaDtoAVenta(ventaEditar, venta);
             if (editado is not null)
             {
                 this._context.Update(editado);
@@ -81,11 +88,61 @@ namespace coder.services
             this._context.SaveChanges();
         }
 
-        public List<Venta> FindVentafromIdUsuario(int id)
+        public List<VentaDTO> FindVentafromIdUsuario(int id)
         {
             List<Venta> ventas = new List<Venta>();
             ventas = this._context.Venta.Where(v => v.IdUsuario == id).ToList();
-            return ventas;
+
+            List<VentaDTO> dtoVenta = new List<VentaDTO>();
+
+            foreach (Venta v in ventas)
+            {
+                dtoVenta.Add(VentaMapper.MapeoReturnDTO(v));
+            }
+
+            return dtoVenta;
         }
+
+        public bool AgregarNuevaVenta(int id, List<ProductoDTO> productosDTO)
+        {
+            Venta venta = new Venta();
+            List<String> nombreProductos = productosDTO.Select(p => p.Descripciones).ToList();
+            string comentario = string.Join(",", nombreProductos);
+            venta.IdUsuario = id;
+            venta.Comentarios = comentario;
+
+            this._context.Venta.Add(venta);
+            this._context.SaveChanges();
+
+            this.ActualizarProductosVendidos(productosDTO, venta.Id);
+            this.ActualizarStockPV(productosDTO);
+
+            return true;
+
+        }
+
+        public void ActualizarProductosVendidos(List<ProductoDTO> productosDTO, int idVenta) 
+        {
+            foreach (ProductoDTO p in productosDTO)
+            {
+                ProductoVendidoDTO productosVendidos = new ProductoVendidoDTO();
+                productosVendidos.IdProducto = p.Id;
+                productosVendidos.IdVenta = idVenta;
+                productosVendidos.Stock = p.Stock;
+                
+                this.productoVendidoServices.AddProductoVendido(productosVendidos);
+            }
+        }
+
+        private void ActualizarStockPV(List<ProductoDTO> productosDTO)
+        {
+            foreach(ProductoDTO p in productosDTO)
+            {
+                ProductoDTO productoAModificar = this.productoService.GetProductoId(p.Id);
+                productoAModificar.Stock -= p.Stock;
+                this.productoService.EditProducto(productoAModificar);
+            }
+        }
+
     }
 }

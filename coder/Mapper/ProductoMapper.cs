@@ -8,6 +8,7 @@ namespace SistemaGestionBussines.Mapper
         public static Producto MapperDTOAProducto(ProductoDTO producto)
         {
             Producto pro = new Producto();
+            pro.Id = producto.Id;
             pro.Descripciones = producto.Descripciones;
             pro.Costo = producto.Costo;
             pro.PrecioVenta = producto.PrecioVenta;
@@ -19,6 +20,7 @@ namespace SistemaGestionBussines.Mapper
         public static ProductoDTO MapperProductoADTO(Producto producto)
         {
             ProductoDTO pro = new ProductoDTO();
+            pro.Id = producto.Id;
             pro.Descripciones = producto.Descripciones;
             pro.Costo = producto.Costo;
             pro.PrecioVenta = producto.PrecioVenta;
@@ -29,6 +31,7 @@ namespace SistemaGestionBussines.Mapper
 
         public static Producto MapeoEditProductoDTO(ProductoDTO dto, Producto producto)
         {
+            producto.Id = dto.Id;
             producto.Descripciones = dto.Descripciones;
             producto.Costo = dto.Costo;
             producto.PrecioVenta = dto.PrecioVenta;

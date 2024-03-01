@@ -42,9 +42,9 @@ namespace coder.services
 
         }
 
-        public void AddProductoVendido(ProductoVendido vendido)
+        public void AddProductoVendido(ProductoVendidoDTO vendido)
         {
-            this._context.ProductoVendidos.Add(vendido);
+            this._context.ProductoVendidos.Add(ProductoVendidoMapper.MapeaProductovendidoDTO(vendido));
             this._context.SaveChanges();
 
         }

@@ -60,7 +60,7 @@ namespace SistemaGestionBussines.controllers
                 return BadRequest("Ingrese id valido.");
             }
 
-            List<Producto> lista = this._services.GetProductoFromIdUsuario(idUsuario);
+            List<ProductoDTO> lista = this._services.GetProductoFromIdUsuario(idUsuario);
 
             if (lista.Count == 0)
             {

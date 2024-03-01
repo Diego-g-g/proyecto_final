@@ -2439,19 +2439,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Diego\\.nuget\\packages\\": {}
+    "C:\\Users\\dgauna\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Diego\\Desktop\\Nueva carpeta (2)\\proyecto_final\\coder\\SistemaGestionBussines.csproj",
+      "projectUniqueName": "C:\\Users\\dgauna\\Desktop\\proyecto\\proyecto_final\\coder\\SistemaGestionBussines.csproj",
       "projectName": "SistemaGestionBussines",
-      "projectPath": "C:\\Users\\Diego\\Desktop\\Nueva carpeta (2)\\proyecto_final\\coder\\SistemaGestionBussines.csproj",
-      "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Diego\\Desktop\\Nueva carpeta (2)\\proyecto_final\\coder\\obj\\",
+      "projectPath": "C:\\Users\\dgauna\\Desktop\\proyecto\\proyecto_final\\coder\\SistemaGestionBussines.csproj",
+      "packagesPath": "C:\\Users\\dgauna\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dgauna\\Desktop\\proyecto\\proyecto_final\\coder\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dgauna\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2507,24 +2507,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.26, 6.0.26]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.26, 6.0.26]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.26, 6.0.26]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.26, 6.0.26]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
