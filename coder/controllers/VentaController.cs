@@ -16,7 +16,7 @@ namespace SistemaGestionBussines.controllers
             this._services = services;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult VentasfromIdUsuario(int id) 
         {
             if(id <= 0) 

@@ -3,7 +3,6 @@ using coder.models;
 using Microsoft.EntityFrameworkCore;
 using SistemaGestionBussines.DTO;
 using SistemaGestionBussines.Mapper;
-using SistemaGestionBussines.services;
 
 namespace coder.services
 {
@@ -13,9 +12,11 @@ namespace coder.services
         private readonly ProductovendidoServices productoVendidoServices;
         private readonly ProductoServices productoService;
 
-        public VentaServices(DataContext context)
+        public VentaServices(DataContext context, ProductovendidoServices productovendidoServices, ProductoServices productoService)
         {
             _context = context;
+            this.productoVendidoServices = productovendidoServices;
+            this.productoService = productoService;
         }
 
         public VentaDTO GetVentaId(int id)
@@ -129,7 +130,6 @@ namespace coder.services
                 productosVendidos.IdProducto = p.Id;
                 productosVendidos.IdVenta = idVenta;
                 productosVendidos.Stock = p.Stock;
-                
                 this.productoVendidoServices.AddProductoVendido(productosVendidos);
             }
         }
